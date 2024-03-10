@@ -16,8 +16,8 @@ def create_connection(db_file):
 
 
 @app.route('/')
-def hello_world():  # put application's code here
-    return 'Hello World!'
+def render_homepage():  # put application's code here
+    return render_template('home.html')
 
 
 if __name__ == '__main__':
