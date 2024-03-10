@@ -32,5 +32,17 @@ def render_student_page():  # put application's code here
     return render_template('student.html', students=student_list)
 
 
+@app.route('/homework')
+def render_homework_page():  # put application's code here
+    con = create_connection(DATABASE)
+    query = "SELECT task, difficulty, subject, description  FROM Homework"
+    cur = con.cursor()
+    cur.execute(query)
+    homework_list = cur.fetchall()
+    con.close()
+    print(homework_list)
+    return render_template('homework.html', homeworks=homework_list)
+
+
 if __name__ == '__main__':
     app.run()
