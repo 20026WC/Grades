@@ -35,13 +35,25 @@ def render_student_page():  # put application's code here
 @app.route('/homework')
 def render_homework_page():  # put application's code here
     con = create_connection(DATABASE)
-    query = "SELECT task, difficulty, subject, description  FROM Homework"
+    query = "SELECT task, difficulty, subject, description FROM Homework"
     cur = con.cursor()
     cur.execute(query)
     homework_list = cur.fetchall()
     con.close()
     print(homework_list)
     return render_template('homework.html', homeworks=homework_list)
+
+
+@app.route('/assign')
+def render_assign_page():  # put application's code here
+    con = create_connection(DATABASE)
+    query = "SELECT id, name, homework, due_date, completed  FROM Assign"
+    cur = con.cursor()
+    cur.execute(query)
+    assigned_homework_list = cur.fetchall()
+    con.close()
+    print(assigned_homework_list)
+    return render_template('assigned.html', assignedhomeworks=assigned_homework_list)
 
 
 if __name__ == '__main__':
