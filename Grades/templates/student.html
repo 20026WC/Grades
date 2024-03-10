@@ -6,9 +6,17 @@ student
 
 {% block main %}
     <div class ="grades">
+    {% for student in students %}
         <div class ="grade-box">
-            <h3 class="grade-box-heading">Student</h3>
-            <p class="grade-box-info">Year 11</p>
+            <h3 class="grade-box-heading">{{ student[0] }}</h3>
+            <div class="grade-box-info">
+                <p><strong>Name:</strong>{{ student[1] }}</p>
+                <p><strong>Last Name:</strong>{{ student[2] }}</p>
+                <p><strong>Year Level:</strong>{{ student[3] }}</p>
+                <p><strong>Email:</strong>{{ student[4] }}</p>
+                <p><strong>Description:</strong>{{ student[5] }}</p>
+            </div>
         </div>
     </div>
+    {% endfor %}
 {% endblock %}
