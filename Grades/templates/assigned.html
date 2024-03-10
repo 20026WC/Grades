@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block pageheading %}
+Assign Homework
+{% endblock %}
+
+{% block main %}
+    <div class ="grades">
+    {% for homework in assignedhomeworks %}
+        <div class ="grade-box">
+            <h3 class="grade-box-heading">{{ homework[0] }}</h3>
+            <div class="grade-box-info">
+                <p><strong>Student Name:</strong>{{ homework[1] }}</p>
+                <p><strong>Homework:</strong>{{ homework[2] }}</p>
+                <p><strong>Due Date:</strong>{{ homework[3] }}</p>
+                <p><strong>Completed:</strong>{{ homework[4] }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
