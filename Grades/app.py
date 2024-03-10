@@ -20,5 +20,10 @@ def render_homepage():  # put application's code here
     return render_template('home.html')
 
 
+@app.route('/student')
+def render_student_page():  # put application's code here
+    return render_template('student.html')
+
+
 if __name__ == '__main__':
     app.run()
