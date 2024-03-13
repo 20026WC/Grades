@@ -47,7 +47,9 @@ def render_homework_page():  # put application's code here
 @app.route('/assign')
 def render_assign_page():  # put application's code here
     con = create_connection(DATABASE)
-    query = "SELECT id, name, homework, due_date, completed  FROM Assign"
+    query = "SELECT name_id, homework_id, due_date, completed  FROM Assigned a" \
+            " INNER JOIN Student s ON a.name_id = s.name" \
+            " INNER JOIN Homework  h ON a.homework_id = h.task "
     cur = con.cursor()
     cur.execute(query)
     assigned_homework_list = cur.fetchall()
